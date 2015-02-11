@@ -15,7 +15,7 @@ and open the template in the editor.
 
     <preference name="phonegap-version" value="3.6.3" />
 
-    <name>LAF Mobile</name>
+    <name>LAF Mobile1</name>
 
     <description>
         Mobile interface for laf
@@ -25,8 +25,12 @@ and open the template in the editor.
         Dubic Uzuegbu
     </author>
     
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+    
     <gap:splash src="splash/laflogo.png" gap:platform="android" width="320" height="480" />
     <gap:splash src="splash/laflogo.png" gap:platform="ios" width="320" height="480" />
+    
+    
 
 </widget>
 
