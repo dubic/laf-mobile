@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="ionicApp">
+    <head>
+        <title>LAF</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+        <link href="resources/css/ionic.css" rel="stylesheet">
+        <link href="resources/css/laf.css" rel="stylesheet">
+        <script src="resources/js/ionic.bundle.min.js"></script>
+        <script src="angular/app.js"></script>
+        <script src="angular/controllers/reg-ctrls.js"></script>
+    </head>
+    <body>
+    <ion-side-menus ng-controller="ContentController">
+<!--        <div class="bar bar-header bar-positive" style="position: inherit">
+            <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+            <h1 class="title" ng-bind="title"></h1>
+        </div>-->
+        <!-- Center content -->
+        <ion-side-menu-content >
+
+            <ui-view/>
+        </ion-side-menu-content>
+
+        <!-- Left menu -->
+        <ion-side-menu side="left">
+            <div class="margin-top-50">
+                <h3>Side menu</h3>
+            </div>
+        </ion-side-menu>
+
+    </ion-side-menus>
+
+
+</body>
+</html>

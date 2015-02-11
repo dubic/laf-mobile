@@ -1,0 +1,29 @@
+
+
+<div style="margin: 5px auto; width: 40%;"><img src="resources/img/laflogo.png" width="129"/></div>
+<div class="has-header">
+    <div class="list list-inset">
+        <label class="item item-input">
+            <i class="icon ion-email placeholder-icon"></i>
+            <input placeholder="Email" type="text" ng-model="User.email"/>
+        </label>
+        <label class="item item-input">
+            <i class="icon ion-locked placeholder-icon"></i>
+            <input placeholder="Password" type="password"  ng-model="User.password"/>
+        </label>
+    </div>
+
+
+    <div class="padding">
+        <button class="btn btn-block btn-primary" ng-click="login()">
+            <span ng-hide="saving">Submit</span>
+            <span ng-show="saving">Saving...</span>
+        </button>
+        <button class="btn btn-block btn-warning" style="margin-top: 20px;" ng-click="route('signup')">Create Account</button>
+    </div>
+
+
+
+
+
+</div>

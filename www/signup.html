@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div style="margin: 5px auto; width: 40%;"><img src="resources/img/laflogo.png" width="129"/></div>
+<div class="has-header">
+    <form name="">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label api-title">First Name</span>
+                <input type="text" placeholder="John" ng-model="Reg.firstname"/>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label api-title">Last Name</span>
+                <input type="text" placeholder="Suhr" ng-model="Reg.lastname"/>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label api-title">Email</span>
+                <input type="text" placeholder="john@suhr.com" ng-model="Reg.email"/>
+            </label>
+        </div>
+
+
+
+        <div class="padding">
+            <button class="btn btn-block btn-primary" ng-disabled="saving" ng-click="createAccount()">
+                <span ng-hide="saving">Login</span>
+                <span ng-show="saving">Saving...</span>
+            </button>
+        </div>
+    </form>
+
+
+
+
+
+</div>
+

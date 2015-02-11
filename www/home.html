@@ -1,0 +1,59 @@
+
+<!--<div class="has-header">-->
+<ion-tabs class="tabs-icon-only tabs-positive">
+
+    <ion-tab title="Home" 
+             icon-on="ion-ios7-filing" 
+             icon-off="ion-ios7-filing-outline">
+
+        <div class="bar bar-header bar-positive" style="position: inherit">
+            <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+            <h1 class="title" ng-bind="title"></h1>
+        </div>
+
+        <ion-content class="top-44" has-tabs="true" on-refresh="onRefresh()">
+
+            <ion-refresher></ion-refresher>
+            <ion-list scroll="false" on-refresh="onRefresh()"
+                      s-editing="isEditingItems" 
+                      animation="fade-out"
+                      delete-icon="icon ion-minus-circled">
+                <ion-item ng-repeat="item in items"
+                          item="item"
+                          buttons="item.buttons"
+                          can-delete="true"
+                          can-swipe="true"
+                          on-delete="deleteItem(item)"
+                          ng-class="{completed: item.isCompleted}">
+                    {{item.title}}
+                    <i class="{{item.icon}}"></i>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline">
+        <div class="bar bar-header bar-positive" style="position: inherit">
+            <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+            <h1 class="title" ng-bind="title"></h1>
+        </div>
+
+        <ion-content class="top-44" has-header="true">
+            <h1>Deadlines</h1>
+        </ion-content>
+    </ion-tab>
+
+    <ion-tab title="Settings" icon-on="icon ion-ios7-gear" icon-off="icon ion-ios7-gear-outline">
+        <div class="bar bar-header bar-positive" style="position: inherit">
+            <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+            <h1 class="title" ng-bind="title"></h1>
+        </div>
+
+        <ion-content class="top-44" has-header="true">
+            <h1>Settings</h1>
+        </ion-content>
+    </ion-tab>
+
+</ion-tabs>
+<!--</div>-->
+
