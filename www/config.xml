@@ -15,10 +15,10 @@ and open the template in the editor.
 
     <preference name="phonegap-version" value="3.6.3" />
 
-    <name>LAF Project config</name>
+    <name>LAF Mobile</name>
 
     <description>
-        config xml doc for laf project
+        Mobile interface for laf
     </description>
 
     <author href="http://yoursite.com" email="udubic@gmail.com">
