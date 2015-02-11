@@ -1,6 +1,6 @@
 
 <!--<div class="has-header">-->
-<ion-tabs class="tabs-icon-only tabs-positive">
+<ion-tabs class="tabs-icon-only tabs-top tabs-positive">
 
     <ion-tab title="Home" 
              icon-on="ion-ios7-filing" 
@@ -11,7 +11,7 @@
             <h1 class="title" ng-bind="title"></h1>
         </div>
 
-        <ion-content class="top-44" has-tabs="true" on-refresh="onRefresh()">
+        <ion-content has-tabs="true" on-refresh="onRefresh()">
 
             <ion-refresher></ion-refresher>
             <ion-list scroll="false" on-refresh="onRefresh()"
@@ -38,7 +38,7 @@
             <h1 class="title" ng-bind="title"></h1>
         </div>
 
-        <ion-content class="top-44" has-header="true">
+        <ion-content has-header="true">
             <h1>Deadlines</h1>
         </ion-content>
     </ion-tab>
@@ -49,7 +49,7 @@
             <h1 class="title" ng-bind="title"></h1>
         </div>
 
-        <ion-content class="top-44" has-header="true">
+        <ion-content has-header="true">
             <h1>Settings</h1>
         </ion-content>
     </ion-tab>
