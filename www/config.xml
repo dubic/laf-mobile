@@ -13,7 +13,8 @@ and open the template in the editor.
 
     <!-- versionCode is optional and Android only -->
 
-    <preference name="phonegap-version" value="3.6.3" />
+    <!--<preference name="phonegap-version" value="3.6.3" />-->
+    <preference name="phonegap-version" value="2.9.0" />
 
     <name>LAF Mobile1</name>
 
@@ -27,8 +28,13 @@ and open the template in the editor.
     
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
     
-    <gap:splash src="splash/laflogo.png" gap:platform="android" width="320" height="480" />
-    <gap:splash src="splash/laflogo.png" gap:platform="ios" width="320" height="480" />
+    <icon src="icon.png" />
+    
+    <gap:splash src="splash.png" />
+
+
+<!--    <gap:splash src="splash/laflogo.png" gap:platform="android" width="320" height="480" />
+    <gap:splash src="splash/laflogo.png" gap:platform="ios" width="320" height="480" />-->
     
     
 
