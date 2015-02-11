@@ -24,6 +24,9 @@ and open the template in the editor.
     <author href="http://yoursite.com" email="udubic@gmail.com">
         Dubic Uzuegbu
     </author>
+    
+    <gap:splash src="splash/laf.png" gap:platform="android" width="320" height="480" />
+    <gap:splash src="splash/laf.png" gap:platform="ios" width="320" height="480" />
 
 </widget>
 
