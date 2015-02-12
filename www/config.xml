@@ -27,6 +27,7 @@ and open the template in the editor.
     </author>
     
     <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+    <gap:plugin name="com.ququplay.websocket.websocket" version="0.1.0" />
     
     <icon src="icon.png" />
     
