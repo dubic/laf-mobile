@@ -22,12 +22,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'signup.html',
                 controller: 'signupCtrl',
                 data: {title: 'Create Account'}
-            }).
-            state('home', {
+            })
+            .state('home', {
                 url: '/home',
                 templateUrl: 'home.html',
                 controller: 'homeCtrl',
                 data: {title: 'LAF'}
+            })
+            .state('chats', {
+                url: '/chats',
+                templateUrl: 'views/chats.html',
+                controller: 'chatsCtrl',
+                data: {title: 'Chats'}
             });
 
 //    $urlRouterProvider.when('/profile','/home/jokes');

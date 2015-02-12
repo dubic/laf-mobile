@@ -15,13 +15,14 @@ and open the template in the editor.
         <script src="resources/js/ionic.bundle.min.js"></script>
         <script src="angular/app.js"></script>
         <script src="angular/controllers/reg-ctrls.js"></script>
+        <script src="angular/controllers/chat-ctrl.js"></script>
     </head>
     <body>
     <ion-side-menus ng-controller="ContentController">
-<!--        <div class="bar bar-header bar-positive" style="position: inherit">
-            <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
-            <h1 class="title" ng-bind="title"></h1>
-        </div>-->
+        <!--        <div class="bar bar-header bar-positive" style="position: inherit">
+                    <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
+                    <h1 class="title" ng-bind="title"></h1>
+                </div>-->
         <!-- Center content -->
         <ion-side-menu-content >
 
@@ -30,9 +31,14 @@ and open the template in the editor.
 
         <!-- Left menu -->
         <ion-side-menu side="left">
-            <div class="margin-top-50">
-                <h3>Side menu</h3>
-            </div>
+            <ion-header-bar class="bar-positive">
+                <h1 class="title">Options</h1>
+            </ion-header-bar>
+            <ion-content>
+                <div class="list-item" ng-click="route('chats')">
+                    Chat
+                </div>
+            </ion-content>
         </ion-side-menu>
 
     </ion-side-menus>
