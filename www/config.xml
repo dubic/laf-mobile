@@ -32,6 +32,10 @@ and open the template in the editor.
     <icon src="icon.png" />
     
     <gap:splash src="splash.png" />
+    
+    <preference name="exit-on-suspend" value="false" />
+    
+    <access origin="*" />
 
 
 <!--    <gap:splash src="splash/laflogo.png" gap:platform="android" width="320" height="480" />
