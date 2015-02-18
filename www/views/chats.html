@@ -11,8 +11,9 @@ and open the template in the editor.
 </ion-header-bar>
 
 <ion-content>
-    <div class="log">
-        <div id="log">waiting...</div>
+    <div ng-show="loading">Loading...</div>
+    <div class="log" ng-bind-html="pages">
+        <!--<div id="log">waiting...</div>-->
         <!--<div ng-repeat="l in logs" ng-bind="l"></div>-->
     </div>
 </ion-content>
