@@ -4,13 +4,7 @@
  * and open the template in the editor.
  */
 
-ctrls.controller('homeCtrl', function($scope, $http) {
-    $scope.items = [
-        {title:'laughing gas',icon:'ion-ios-videocam',isCompleted:true},  
-        {title:'spring tutorial',icon:'ion-ios-videocam',isCompleted:false},  
-        {title:'container JPA',icon:'ion-ios-videocam',isCompleted:true}  
-    ];
-});
+
 ctrls.controller('loginCtrl', function($scope, $http) {
 
     $scope.login = function() {

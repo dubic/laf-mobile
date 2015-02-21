@@ -2,9 +2,7 @@
 <!--<div class="has-header">-->
 <ion-tabs class="tabs-icon-only tabs-top tabs-positive">
 
-    <ion-tab title="Home" 
-             icon-on="ion-ios7-film" 
-             icon-off="ion-ios7-film-outline">
+    <ion-tab title="Videos" icon-on="ion-ios7-film" icon-off="ion-ios7-film-outline">
 
         <ion-header-bar class="bar-positive">
             <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
@@ -18,16 +16,19 @@
                       s-editing="isEditingItems" 
                       animation="fade-out"
                       delete-icon="icon ion-minus-circled">
-                <ion-item ng-repeat="item in items"
+<!--                <ion-item ng-repeat="item in items"
                           item="item"
                           buttons="item.buttons"
                           can-delete="true"
                           can-swipe="true"
                           on-delete="deleteItem(item)"
-                          ng-class="{completed: item.isCompleted}">
-                    {{item.title}}
-                    <i class="{{item.icon}}"></i>
-                </ion-item>
+                          ng-class="{completed: item.isCompleted}">-->
+<a ng-repeat="v in videos" class="item item-thumbnail-left" href="" ng-click="playVideo()">
+                        <img src="{{v.snippet.thumbnails.default.url}}"/>
+                        <h2 ng-bind="v.snippet.title"></h2>
+                        <p ng-bind="v.snippet.description"></p>
+                    </a>
+                <!--</ion-item>-->
             </ion-list>
         </ion-content>
     </ion-tab>
@@ -40,6 +41,9 @@
 
         <ion-content has-header="true">
             <h3>Deadlines</h3>
+            <div>
+                <iframe class="youtube-player" type="text/html" height="385" src="http://www.youtube.com/embed/SRo9RcE65lo" frameborder="0"/>
+            </div>
         </ion-content>
     </ion-tab>
 
