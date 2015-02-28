@@ -5,25 +5,52 @@
  */
 
 
-ctrls.controller('loginCtrl', function($scope, $http) {
-
+ctrls.controller('loginCtrl', function($scope, $http, $ionicLoading,lafResource,$rootScope) {
+    $scope.User = {};
+    $scope.loginErr = false;
     $scope.login = function() {
-        $scope.saving = true;
         console.log($scope.User);
-        $http.post('http://169.254.174.94:8080/laf/web/lafresource/login', $scope.User).success(function(resp) {
-            $scope.saving = false;
-            console.log(resp);
+        $ionicLoading.show({template: 'Signing in...'});
+        $http.post(lafResource+'/login', $scope.User).success(function(resp) {
+            $ionicLoading.hide();
+            $rootScope.route('home');
+            $rootScope.User = resp;
+            
+        }).error(function(r){
+            $ionicLoading.hide();
+//            console.log(r);
+            $scope.loginErr = true;
+            $scope.loginErrMsg = r.message; 
         });
     };
 });
-ctrls.controller('signupCtrl', function($scope, $http, $timeout) {
-    $scope.createAccount = function() {
-        $scope.saving = true;
+ctrls.controller('signupCtrl', function($scope, $http, $timeout,$ionicLoading,$rootScope,lafResource) {
+    $scope.Reg = {};
+    
+    $scope.suc = function() {
+        $rootScope.route('signupcomplete');
+    };
+    $scope.testAccount = function() {
+        $ionicLoading.show({template: 'Creating user account...'});
         $timeout(function() {
-            $scope.saving = false;
+            $ionicLoading.hide();
             console.log($scope.Reg);
             $scope.Reg = {};
         }, 1000);
+
+    };
+    $scope.createAccount = function() {
+        console.log($scope.Reg);
+        $ionicLoading.show({template: 'Creating user account...'});
+        $http.post(lafResource+'/createUser',$scope.Reg).success(function(resp) {
+            console.log(resp);
+            $ionicLoading.hide();
+            $scope.Reg = {};
+            $rootScope.route('signupcomplete');
+        }).error(function(r){
+            $ionicLoading.hide();
+            $scope.alerts = [{class:'alert-danger',msg:r.message}];
+        });
 
     };
 });

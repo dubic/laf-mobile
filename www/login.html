@@ -2,6 +2,7 @@
 <ion-content>
     <div style="margin: 5px auto; width: 40%;"><img src="resources/img/laflogo.png" width="129"/></div>
     <div class="has-header">
+        <!--<div class="padding"></div>-->
         <div class="list list-inset">
             <label class="item item-input">
                 <i class="icon ion-email placeholder-icon"></i>
@@ -11,11 +12,12 @@
                 <i class="icon ion-locked placeholder-icon"></i>
                 <input placeholder="Password" type="password"  ng-model="User.password"/>
             </label>
+            <p class="errormsg" ng-show="loginErr" ng-bind="loginErrMsg"></p>
         </div>
 
 
         <div class="padding">
-            <button class="btn btn-block btn-primary" ng-click="route('home')">
+            <button class="btn btn-block btn-primary" ng-click="login()">
                 <span ng-hide="saving">Submit</span>
                 <span ng-show="saving">Saving...</span>
             </button>

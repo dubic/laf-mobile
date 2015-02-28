@@ -4,16 +4,17 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<style>
+    iframe{
+        width: 100%;
+        height: 300px;
+    }
+</style>
 <ion-header-bar class="bar-positive">
     <button class="button icon ion-chevron-left" ng-click="back()"></button>
     <h1 class="title" ng-bind="title"></h1>
-    <button class="button" ng-click="clearlog()">clear</button>
 </ion-header-bar>
 
 <ion-content>
-    <div ng-show="loading">Loading...</div>
-    <!--<div class="log" ng-bind-html="pages">-->
-        <div id="log">waiting...</div>
-        <div ng-repeat="l in logs" ng-bind="l"></div>
-    <!--</div>-->
+    <iframe class="youtube-player" type="text/html" height="300" src="" frameborder="0"/>
 </ion-content>

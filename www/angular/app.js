@@ -5,7 +5,8 @@
  */
 
 
-var app = angular.module('ionicApp', ['ionic', 'controllers']);
+var app = angular.module('ionicApp', ['ionic', 'controllers','InputMatch'])
+        .constant('lafResource','http://54.186.163.242:8080/laf-1.0/web/lafresource');
 
 var ctrls = angular.module('controllers', []);
 
@@ -22,10 +23,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'signup.html',
                 controller: 'signupCtrl',
                 data: {title: 'Create Account'}
+            }).
+            state('signupcomplete', {
+                templateUrl: 'signupcomplete.html',
+                controller: 'signupCtrl',
+                data: {title: 'Account Created'}
             })
             .state('home', {
                 url: '/home',
-                templateUrl: 'home.html',
+                templateUrl: 'views/home.html',
                 controller: 'homeCtrl',
                 data: {title: 'LAF'}
             })
@@ -34,6 +40,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'views/chats.html',
                 controller: 'chatsCtrl',
                 data: {title: 'Chats'}
+            })
+            .state('videoplay', {
+                url: '/videoplay',
+                templateUrl: 'views/videoplay.html',
+                controller: 'videoplayCtrl',
+                data: {title: 'Play Video'}
+            }).state('profile', {
+                url: '/profile',
+                templateUrl: 'views/profile.html',
+                controller: 'profileCtrl',
+                data: {title: 'Profile'}
             });
 
 //    $urlRouterProvider.when('/profile','/home/jokes');
@@ -71,6 +88,8 @@ app.run(function($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeSuccess', function(e, to) {
         $rootScope.loading = false;
         $rootScope.title = to.data.title;
+//        if(to.name === 'videoplay') $rootScope.title = $rootScope.videoName;
+            
     });
 });
 

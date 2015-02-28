@@ -4,32 +4,55 @@
  * and open the template in the editor.
  */
 
-ctrls.controller('homeCtrl', function($scope, $http, $timeout, $ionicLoading, $ionicTabsDelegate) {
+ctrls.controller('homeCtrl', function($scope, $http, $timeout, $ionicLoading, $ionicTabsDelegate, $rootScope,lafResource) {
     $scope.items = [
         {title: 'laughing gas', icon: 'ion-ios-videocam', isCompleted: true},
         {title: 'spring tutorial', icon: 'ion-ios-videocam', isCompleted: false},
         {title: 'container JPA', icon: 'ion-ios-videocam', isCompleted: true}
     ];
+    
+//    $scope.onRefresh = function() {
+//        
+//    };
 
     $scope.loadVideos = function() {
         $scope.loadingVideos = true;
-        $ionicLoading.show({template: 'Loading...'});
+        $ionicLoading.show({template: 'Loading Videos...'});
 //        $timeout(function() {
-        $http.get('http://54.186.163.242:8080/laf-1.0/web/lafresource/lafVideos').success(function(r) {
+        $http.get(lafResource+'/lafVideos/10').success(function(r) {
             $ionicLoading.hide();
             $scope.videos = r.items;
         });
 
 //        }, 1000);
     };
-
+//    $scope.videos = [];
+//    if ($scope.videos.length === 0) {
     $scope.loadVideos();
+//    }
+
     $scope.videoUrl = 'http://www.youtube.com/embed/';
 
-    $scope.playVideo = function(vid) {
-        $ionicTabsDelegate.select(1);
-        $scope.videoUrl = 'http://www.youtube.com/embed/' + vid;
+    $scope.playVideo = function(i) {
+        $rootScope.videoId = $scope.videos[i].id.videoId;
+        $rootScope.videoName = $scope.videos[i].snippet.title;
+        $rootScope.route('videoplay');
+//        $ionicTabsDelegate.select(1);
+//        $scope.videoUrl = 'http://www.youtube.com/embed/' + vid;
+//        $http.get('http://www.youtube.com/embed/'+vid).success(function(r){
+//           $scope.video = r; 
+//        });
     };
+
+    $scope.fbshare = function(i) {
+        FB.ui({
+            method: 'share',
+            href: 'https://developers.facebook.com/docs/'
+        }, function(response) {
+        });
+    };
+
+
 });
 
 

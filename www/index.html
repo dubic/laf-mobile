@@ -9,16 +9,50 @@ and open the template in the editor.
         <title>LAF</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <link href="resources/jquery-ui/jquery-ui-1.10.3.custom.min.css" rel="stylesheet">
         <link href="resources/css/bootstrap.min.css" rel="stylesheet">
         <link href="resources/css/ionic.css" rel="stylesheet">
         <link href="resources/css/laf.css" rel="stylesheet">
+        <script src="resources/js/jquery-1.10.2.min.js"></script>
+        <script src="resources/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="resources/js/jquery.ui.touch-punch.min.js"></script>
         <script src="resources/js/ionic.bundle.min.js"></script>
+        <script src="resources/js/match.js"></script>
         <script src="angular/app.js"></script>
         <script src="angular/controllers/reg-ctrls.js"></script>
         <script src="angular/controllers/chat-ctrl.js"></script>
         <script src="angular/controllers/home-ctrl.js"></script>
+        <script src="angular/controllers/videoplay-ctrl.js"></script>
+        <script src="angular/controllers/profile-ctrl.js"></script>
     </head>
     <body>
+        <script>
+            window.fbAsyncInit = function() {
+                console.log('facebook created');
+                FB.init({
+                    appId: '790432414369806',
+                    xfbml: true,
+                    version: 'v2.2'
+                });
+
+                FB.ui({
+                    method: 'share',
+                    href: 'https://developers.facebook.com/docs/'
+                }, function(response) {
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     <ion-side-menus ng-controller="ContentController">
         <!--        <div class="bar bar-header bar-positive" style="position: inherit">
                     <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
@@ -36,9 +70,20 @@ and open the template in the editor.
                 <h1 class="title">Options</h1>
             </ion-header-bar>
             <ion-content>
-                <div class="list-item" ng-click="route('chats')">
-                    Chat
-                </div>
+                <ion-list scroll="false" on-refresh="onRefresh()"
+                          s-editing="isEditingItems" 
+                          animation="fade-out"
+                          delete-icon="icon ion-minus-circled">
+                    <ion-item class="item-icon-left" ng-click="route('chats')" menu-close>
+                        <i class="icon ion-chatbubble-working"></i>
+                        Chats
+                        <span class="badge badge-assertive">4</span>
+                    </ion-item>
+                    <ion-item class="item-icon-left" ng-click="route('profile')" menu-close>
+                        <i class="icon ion-clipboard"></i>
+                        Profile
+                    </ion-item>
+                </ion-list>
             </ion-content>
         </ion-side-menu>
 
