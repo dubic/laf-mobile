@@ -5,8 +5,8 @@
  */
 
 
-var app = angular.module('ionicApp', ['ionic', 'controllers','InputMatch'])
-        .constant('lafResource','http://54.186.163.242:8080/laf-1.0/web/lafresource');
+var app = angular.module('ionicApp', ['ionic', 'controllers', 'InputMatch', 'ui.bootstrap'])
+        .constant('lafResource', 'http://54.186.163.242:8080/laf-1.0/web/lafresource');
 
 var ctrls = angular.module('controllers', []);
 
@@ -23,6 +23,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'signup.html',
                 controller: 'signupCtrl',
                 data: {title: 'Create Account'}
+            }).
+            state('forgotp', {
+                url: '/forgotp',
+                templateUrl: 'views/forgot-password.html',
+                controller: 'fpCtrl',
+                data: {title: 'Forgot Password'}
             }).
             state('signupcomplete', {
                 templateUrl: 'signupcomplete.html',
@@ -47,11 +53,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'videoplayCtrl',
                 data: {title: 'Play Video'}
             }).state('profile', {
-                url: '/profile',
-                templateUrl: 'views/profile.html',
-                controller: 'profileCtrl',
-                data: {title: 'Profile'}
-            });
+        url: '/profile',
+        templateUrl: 'views/profile.html',
+        controller: 'profileCtrl',
+        data: {title: 'Profile'}
+    });
 
 //    $urlRouterProvider.when('/profile','/home/jokes');
     $urlRouterProvider.otherwise('/login');
@@ -79,17 +85,18 @@ app.run(function($rootScope, $state, $window) {
         $window.history.back();
     };
 
-    $rootScope.alerts = [];
+    $rootScope.events = [];
+    $rootScope.videos = [];
     $rootScope.$on('$stateChangeStart', function(e, to) {
         $rootScope.loading = true;
 
-        console.log('name - ' + to.name);
+//        console.log('name - ' + to.name);
     });
     $rootScope.$on('$stateChangeSuccess', function(e, to) {
         $rootScope.loading = false;
         $rootScope.title = to.data.title;
 //        if(to.name === 'videoplay') $rootScope.title = $rootScope.videoName;
-            
+
     });
 });
 

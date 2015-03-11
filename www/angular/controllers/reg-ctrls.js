@@ -5,28 +5,36 @@
  */
 
 
-ctrls.controller('loginCtrl', function($scope, $http, $ionicLoading,lafResource,$rootScope) {
+ctrls.controller('loginCtrl', function($scope, $http, $ionicLoading, lafResource, $rootScope,$ionicPopup) {
     $scope.User = {};
     $scope.loginErr = false;
     $scope.login = function() {
         console.log($scope.User);
         $ionicLoading.show({template: 'Signing in...'});
-        $http.post(lafResource+'/login', $scope.User).success(function(resp) {
+        $http.post(lafResource + '/login', $scope.User).success(function(resp) {
             $ionicLoading.hide();
             $rootScope.route('home');
             $rootScope.User = resp;
-            
-        }).error(function(r){
+            localStorage.userid = $rootScope.User.lafId;
+            console.log('stored : ' + localStorage.userid);
+
+        }).error(function(r) {
             $ionicLoading.hide();
 //            console.log(r);
-            $scope.loginErr = true;
-            $scope.loginErrMsg = r.message; 
+            $ionicPopup.alert({
+                title: 'Login Error',
+                template: r.message
+            });
         });
     };
+
+    $scope.testal = function() {
+//        alert('wrong credentials');
+    };
 });
-ctrls.controller('signupCtrl', function($scope, $http, $timeout,$ionicLoading,$rootScope,lafResource) {
+ctrls.controller('signupCtrl', function($scope, $http, $timeout, $ionicLoading, $rootScope, lafResource) {
     $scope.Reg = {};
-    
+
     $scope.suc = function() {
         $rootScope.route('signupcomplete');
     };
@@ -42,14 +50,14 @@ ctrls.controller('signupCtrl', function($scope, $http, $timeout,$ionicLoading,$r
     $scope.createAccount = function() {
         console.log($scope.Reg);
         $ionicLoading.show({template: 'Creating user account...'});
-        $http.post(lafResource+'/createUser',$scope.Reg).success(function(resp) {
+        $http.post(lafResource + '/createUser', $scope.Reg).success(function(resp) {
             console.log(resp);
             $ionicLoading.hide();
             $scope.Reg = {};
             $rootScope.route('signupcomplete');
-        }).error(function(r){
+        }).error(function(r) {
             $ionicLoading.hide();
-            $scope.alerts = [{class:'alert-danger',msg:r.message}];
+            $scope.alerts = [{class: 'alert-danger', msg: r.message}];
         });
 
     };

@@ -1,7 +1,7 @@
 
 <ion-content>
-    <div style="margin: 5px auto; width: 40%;"><img src="resources/img/laflogo.png" width="129"/></div>
-    <div class="has-header">
+    <div style="max-width: 190px;margin: auto;padding: 5px"><img style="width: 100%" src="resources/img/la-crop.jpg"/></div>
+    <div class="has-header" style="max-width: 300px;margin: auto;">
         <!--<div class="padding"></div>-->
         <div class="list list-inset">
             <label class="item item-input">
@@ -12,7 +12,7 @@
                 <i class="icon ion-locked placeholder-icon"></i>
                 <input placeholder="Password" type="password"  ng-model="User.password"/>
             </label>
-            <p class="errormsg" ng-show="loginErr" ng-bind="loginErrMsg"></p>
+            <!--<p class="errormsg" ng-show="loginErr" ng-bind="loginErrMsg"></p>-->
         </div>
 
 
@@ -22,6 +22,18 @@
                 <span ng-show="saving">Saving...</span>
             </button>
             <button class="btn btn-block btn-warning" style="margin-top: 20px;" ng-click="route('signup')">Create Account</button>
+
+        </div>
+<!--        <div class="padding">
+            <button class="btn btn-block btn-sm btn-primary" ng-click=""><i class="ion-social-facebook"></i> Login with facebook</button>
+        </div>-->
+        <div class="padding">
+            <a class="btn btn-block btn-social btn-facebook" ng-click="testal()">
+                <i class="fa fa-facebook"></i> Sign in with Facebook
+            </a>
+        </div>
+        <div class="padding">
+            <a href="#/forgotp">Forgot password?</a>
         </div>
 
     </div>

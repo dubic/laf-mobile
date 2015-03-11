@@ -2,17 +2,17 @@
 <!--<div class="has-header">-->
 <ion-tabs class="tabs-icon-only tabs-top tabs-positive">
 
-    <ion-tab title="Videos" icon-on="ion-ios7-film" icon-off="ion-ios7-film-outline">
+    <ion-tab title="Videos" icon-on="ion-ios7-film" icon-off="ion-ios7-film-outline" on-select="videoTabbed()">
 
         <ion-header-bar class="bar-positive">
             <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
             <h1 class="title" ng-bind="title"></h1>
         </ion-header-bar>
 
-        <ion-content has-tabs="true" on-refresh="loadVideos()">
+        <ion-content has-tabs="true">
 
-            <ion-refresher></ion-refresher>
-            <ion-list scroll="false" on-refresh="loadVideos()"
+            <ion-refresher  on-refresh="refreshVideos()"></ion-refresher>
+            <ion-list scroll="false"
                       s-editing="isEditingItems" 
                       animation="fade-out"
                       delete-icon="icon ion-minus-circled">
@@ -23,37 +23,50 @@
                                           can-swipe="true"
                                           on-delete="deleteItem(item)"
                                           ng-class="{completed: item.isCompleted}">-->
-                <a ng-repeat="v in videos" class="item item-thumbnail-left" href="" ng-click="playVideo($index)">
-                    <img src="{{v.snippet.thumbnails.default.url}}"/>
-                    <h2 ng-bind="v.snippet.title"></h2>
-                    <p ng-bind="v.snippet.description"></p>
-                    <!--<button ng-click="fbshare()">share</button>-->
-                </a>
+                <div class="row list-item" ng-repeat="v in videos" >
+                    <div class="col-md-1" ng-click="playVideo($index)">
+                        <img class="img-thumbnail" style="width: 80px" src="{{v.snippet.thumbnails.default.url}}"/>
+                    </div>
+                    <div class="col-md-11">
+                        <div ng-click="playVideo($index)"><small class="date-grey" style="text-overflow: ellipsis;text-align: justify; font-weight: bold;" ng-bind="v.snippet.title"></small></div>
+                        <a href="" ng-click="fbshare()"><img src="resources/img/face-f.jpg"/></a>
+                        <!--<p ng-bind="v.snippet.description"></p>-->
+                    </div>
+                        
+
+                        <!--<a href="#" data-original-title="facebook" class="social-icon social-icon-color facebook"></a>-->
+                    
+                </div>
                 <!--</ion-item>-->
             </ion-list>
         </ion-content>
     </ion-tab>
 
-    <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline">
+    <!--EVENTS TAB-->
+    <ion-tab title="Events" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline" on-select="eventTabbed()">
         <div class="bar bar-header bar-positive" style="position: inherit">
             <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
             <h1 class="title" ng-bind="title"></h1>
         </div>
 
         <ion-content has-header="true">
-            <h3>Deadlines</h3>
-            <div>
-                <div
-                    class="fb-like"
-                    data-share="true"
-                    data-width="450"
-                    data-show-faces="true">
+            <ion-refresher  on-refresh="refreshEvents()"></ion-refresher>
+            <ion-list scroll="false"
+                      s-editing="isEditingItems" 
+                      animation="fade-out"
+                      delete-icon="icon ion-minus-circled">
+                <div class="row list-item" ng-repeat="e in events" ng-click="">
+                    <div class="col-md-12">
+                        <div><small class="date-grey" style="text-overflow: ellipsis;text-align: justify; font-weight: bold;" ng-bind="e.createdTime |date:'medium'"></small></div>
+                        <div class="fine bold" ng-bind="e.eventName"></div>
+                        <div ng-bind="e.eventDesc"></div>
+                    </div>
                 </div>
-            </div>
+            </ion-list>
         </ion-content>
     </ion-tab>
 
-    <ion-tab title="Settings" icon-on="icon ion-ios7-gear" icon-off="icon ion-ios7-gear-outline">
+<!--    <ion-tab title="About" icon-on="icon ion-ios7-gear" icon-off="icon ion-ios7-gear-outline">
         <div class="bar bar-header bar-positive" style="position: inherit">
             <button class="button icon ion-navicon" ng-click="toggleLeft()"></button>
             <h1 class="title" ng-bind="title"></h1>
@@ -77,7 +90,7 @@
             <h1>Settings</h1>
             <h1>Settings</h1>
         </ion-content>
-    </ion-tab>
+    </ion-tab>-->
 
 </ion-tabs>
 

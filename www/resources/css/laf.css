@@ -45,3 +45,51 @@ and open the template in the editor.
     border: none;
     box-shadow: none;
 }
+
+.laf-list{
+    position: relative;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 0px;
+}
+.list-item{
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 3px;
+}
+.social-icon.facebook {background: url(../img/social/facebook.png) no-repeat;}
+
+.date-grey{
+    color:#999;
+    font-size: 11px;
+}
+.error-msg{
+    color: #B94A48;
+}
+input.ng-invalid.ng-dirty{
+    border: 1px solid #CC0D0D;
+}
+textarea.ng-invalid.ng-dirty{
+    border: 1px solid #CC0D0D;
+}
+.form-control:focus {
+    /*    border-color: #66AFE9;
+        outline: 0px none;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6);*/
+}
+.texty{
+    border: 1px solid #ddd !important;
+}
+.labels{
+    color: #8D8D8D;
+    font-weight: normal;
+    font-size: 12px;
+}
+.title{
+    font-family: proxima-nova-sc-osf,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.fine{
+    font-family: museo-slab,Georgia,"Times New Roman",Times,serif;
+}
+.bold{
+    font-weight: bold;
+}

@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <ion-header-bar class="bar-positive">
+    <button class="button icon ion-chevron-left" ng-click="back()"></button>
     <h1 class="title" ng-bind="title"></h1>
 </ion-header-bar>
 <ion-content>
@@ -15,46 +16,33 @@ and open the template in the editor.
         <form name="frm">
             <div class="list">
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">First Name *</span>
-                    <div class="errormsg" ng-show="frm.fname.$dirty && frm.fname.$error.required">Required field</div>
-                    <input type="text" placeholder="John" ng-model="Reg.first_name" name="fname" class="form-control reg-input" required/>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Last Name</span>
-                    <input type="text" placeholder="Suhr" ng-model="Reg.last_name" name="lname" class="form-control reg-input" required/>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Email</span>
-                    <input type="text" placeholder="john@suhr.com" ng-model="Reg.email" name="email" class="form-control reg-input" required/>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Password</span>
-                    <input type="password" placeholder="password" ng-model="Reg.password" name="pwrd" class="form-control reg-input" required/>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Retype Password</span>
-                    <div class="errormsg" ng-show="frm.vpword.$dirty && frm.vpword.$error.match">Must match password</div>
-                    <input type="password" placeholder="retype password" ng-model="vpword" name="vpword" class="form-control reg-input" match="Reg.password"/>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Phone</span>
-                    <input type="text" placeholder="08032345781" ng-model="Reg.phone"  name="phone" class="form-control reg-input" required/>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Screen Name</span>
+                    <span class="input-label api-title">Screen Name *</span>
+                    <div class="errormsg" ng-show="frm.scrname.$dirty && frm.scrname.$error.required">Required field</div>
                     <input type="text" placeholder="johnny" ng-model="Reg.screen_name"  name="scrname" class="form-control reg-input" required/>
                 </label>
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label api-title">Date of Birth</span>
-                    <input type="text" placeholder="12-dec-1987" ng-model="Reg.dob"  name="dob" class="form-control reg-input datefield" required/>
+                    <span class="input-label api-title">Email *</span>
+                    <div class="errormsg" ng-show="frm.email.$dirty && frm.email.$error.required">Required field</div>
+                    <div class="errormsg" ng-show="frm.email.$dirty && frm.email.$error.email">Invalid Email</div>
+                    <input type="text" placeholder="john@suhr.com" ng-model="Reg.email" name="email" class="form-control reg-input" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label api-title">Password *</span>
+                    <div class="errormsg" ng-show="frm.pwrd.$dirty && frm.pwrd.$error.required">Required field</div>
+                    <input type="password" placeholder="password" ng-model="Reg.password" name="pwrd" class="form-control reg-input" required/>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label api-title">Retype Password *</span>
+                    <div class="errormsg" ng-show="frm.vpword.$dirty && frm.vpword.$error.match">Must match password</div>
+                    <input type="password" placeholder="retype password" ng-model="vpword" name="vpword" class="form-control reg-input" match="Reg.password"/>
                 </label>
             </div>
 
 
 
             <div class="padding">
-                <button class="btn btn-block btn-primary" ng-disabled="saving" ng-click="createAccount()">
-                    <span ng-hide="saving">Save</span>
+                <button class="btn btn-block btn-primary" ng-disabled="saving || frm.$invalid" ng-click="createAccount()">
+                    <span ng-hide="saving">Create Account</span>
                     <span ng-show="saving">Saving...</span>
                 </button>
             </div>
