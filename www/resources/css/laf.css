@@ -93,3 +93,6 @@ textarea.ng-invalid.ng-dirty{
 .bold{
     font-weight: bold;
 }
+.padding-updown-10{
+    padding-top: 10px;
+}

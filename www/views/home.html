@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-11">
                         <div ng-click="playVideo($index)"><small class="date-grey" style="text-overflow: ellipsis;text-align: justify; font-weight: bold;" ng-bind="v.snippet.title"></small></div>
-                        <a href="" ng-click="fbshare()"><img src="resources/img/face-f.jpg"/></a>
+                        <a href="" ng-click="fbshare()"><img src="resources/img/facebook_share.gif"/></a>
                         <!--<p ng-bind="v.snippet.description"></p>-->
                     </div>
                         
@@ -57,9 +57,9 @@
                       delete-icon="icon ion-minus-circled">
                 <div class="row list-item" ng-repeat="e in events" ng-click="">
                     <div class="col-md-12">
-                        <div><small class="date-grey" style="text-overflow: ellipsis;text-align: justify; font-weight: bold;" ng-bind="e.createdTime |date:'medium'"></small></div>
-                        <div class="fine bold" ng-bind="e.eventName"></div>
-                        <div ng-bind="e.eventDesc"></div>
+                        <!--<div><small class="date-grey" style="text-overflow: ellipsis;text-align: justify; font-weight: bold;" ng-bind="e.createdTime |date:'medium'"></small></div>-->
+                        <div class="padding-updown-10" ng-bind="e.eventName"></div>
+                        <!--<div ng-bind="e.eventDesc"></div>-->
                     </div>
                 </div>
             </ion-list>

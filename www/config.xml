@@ -9,7 +9,7 @@ and open the template in the editor.
 
         xmlns:gap   = "http://phonegap.com/ns/1.0"
          id          = "com.phonegap.example"
-         version     = "1.1.0" >
+         version     = "1.1.1" >
 
     <!-- versionCode is optional and Android only -->
 
